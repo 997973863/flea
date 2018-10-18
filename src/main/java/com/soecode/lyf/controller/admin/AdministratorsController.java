@@ -94,4 +94,5 @@ public class AdministratorsController {
         logger.info("查询数据库中管理员信息->end");
         return JSON.toJSONString(result, SerializerFeature.WriteMapNullValue);
     }
+    
 }

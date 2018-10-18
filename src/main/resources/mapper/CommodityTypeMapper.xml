@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.soecode.lyf.mapper.CommodityTypeMapper" >
+  <resultMap id="BaseResultMap" type="com.soecode.lyf.entity.CommodityType" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="type_name" property="type_name" jdbcType="VARCHAR" />
+    <result column="type_father_id" property="type_father_id" jdbcType="INTEGER" />
+    <result column="create_data" property="create_data" jdbcType="VARCHAR" />
+    <result column="create_by" property="create_by" jdbcType="VARCHAR" />
+    <result column="update_data" property="update_data" jdbcType="VARCHAR" />
+    <result column="update_by" property="update_by" jdbcType="VARCHAR" />
+    <result column="type_status" property="type_status" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, type_name, type_father_id, create_data, create_by, update_data, update_by
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from commodity_type
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from commodity_type
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.soecode.lyf.entity.CommodityType" >
+    insert into commodity_type (id, type_name, type_father_id, 
+      create_data, create_by, update_data, 
+      update_by)
+    values (#{id,jdbcType=INTEGER}, #{type_name,jdbcType=VARCHAR}, #{type_father_id,jdbcType=INTEGER}, 
+      #{create_data,jdbcType=VARCHAR}, #{create_by,jdbcType=VARCHAR}, #{update_data,jdbcType=VARCHAR}, 
+      #{update_by,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.soecode.lyf.entity.CommodityType" >
+    insert into commodity_type
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="type_name != null" >
+        type_name,
+      </if>
+      <if test="type_father_id != null" >
+        type_father_id,
+      </if>
+      <if test="create_data != null" >
+        create_data,
+      </if>
+      <if test="create_by != null" >
+        create_by,
+      </if>
+      <if test="update_data != null" >
+        update_data,
+      </if>
+      <if test="update_by != null" >
+        update_by,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="type_name != null" >
+        #{type_name,jdbcType=VARCHAR},
+      </if>
+      <if test="type_father_id != null" >
+        #{type_father_id,jdbcType=INTEGER},
+      </if>
+      <if test="create_data != null" >
+        #{create_data,jdbcType=VARCHAR},
+      </if>
+      <if test="create_by != null" >
+        #{create_by,jdbcType=VARCHAR},
+      </if>
+      <if test="update_data != null" >
+        #{update_data,jdbcType=VARCHAR},
+      </if>
+      <if test="update_by != null" >
+        #{update_by,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.soecode.lyf.entity.CommodityType" >
+    update commodity_type
+    <set >
+      <if test="type_name != null" >
+        type_name = #{type_name,jdbcType=VARCHAR},
+      </if>
+      <if test="type_father_id != null" >
+        type_father_id = #{type_father_id,jdbcType=INTEGER},
+      </if>
+      <if test="create_data != null" >
+        create_data = #{create_data,jdbcType=VARCHAR},
+      </if>
+      <if test="create_by != null" >
+        create_by = #{create_by,jdbcType=VARCHAR},
+      </if>
+      <if test="update_data != null" >
+        update_data = #{update_data,jdbcType=VARCHAR},
+      </if>
+      <if test="update_by != null" >
+        update_by = #{update_by,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.soecode.lyf.entity.CommodityType" >
+    update commodity_type
+    set type_name = #{type_name,jdbcType=VARCHAR},
+      type_father_id = #{type_father_id,jdbcType=INTEGER},
+      create_data = #{create_data,jdbcType=VARCHAR},
+      create_by = #{create_by,jdbcType=VARCHAR},
+      update_data = #{update_data,jdbcType=VARCHAR},
+      update_by = #{update_by,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

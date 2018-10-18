@@ -51,12 +51,12 @@ public class AdminServiceImpl implements AdminService {
     public ResultModel selectAllAdmin(Admin admin) {
         ResultModel result = ResultUtil.info(WizardAuditEnum.StatusEnum.STATUS_FAIL.getValue(),WizardAuditEnum.StatusEnum.STATUS_FAIL.getDesc());
         logger.info("查询数据库->start");
-        AdminParams adminParams = adminMapper.selectOneAdmin(admin);
-        List<Map<String,Object>> adminList = adminMapper.selectAllAdmin(adminParams);
+//        AdminParams adminParams = adminMapper.selectOneAdmin(admin);
+        List<Map<String,Object>> adminList = adminMapper.selectAllAdmin(admin);
         logger.info("查询数据库->end");
         if(adminList.size() > 0){
-            result.setData(adminList);
             result = ResultUtil.success(WizardAuditEnum.StatusEnum.STATUS_SUCCESS.getValue(),WizardAuditEnum.StatusEnum.STATUS_SUCCESS.getDesc());
+            result.setData(adminList);
         }
         return result;
     }

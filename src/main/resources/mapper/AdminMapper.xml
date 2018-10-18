@@ -158,12 +158,11 @@
   </select>
 
   <!--查询全部管理员的信息和角色信息-->
-  <select id="selectAllAdmin" resultType="map" parameterType="com.soecode.lyf.entity.params.AdminParams" >
-    select *
+  <select id="selectAllAdmin" resultType="map" parameterType="com.soecode.lyf.entity.Admin" >
+    select id, admin_name, admin_iphone, admin_status, create_data, create_by, update_date, update_by  
     from admin
-    union all
-    select *
-    from role;
+    where
+    admin_status = #{admin_status,jdbcType=INTEGER}
   </select>
 
   <!--通过管理员id，查询管理员的信息和管理员角色id-->

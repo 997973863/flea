@@ -27,10 +27,10 @@ public interface AdminMapper {
     Admin selectByLogin(Admin admin);
     /**
      * 根据权限，查询全部管理员信息
-     * @param adminParams
+     * @param admin
      * @return
      */
-    List<Map<String,Object>> selectAllAdmin(AdminParams adminParams);
+    List<Map<String,Object>> selectAllAdmin(Admin admin);
     /**
      * 查询单个管理员信息，根据id和状态
      * @param admin
